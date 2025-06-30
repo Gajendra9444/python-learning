@@ -9,7 +9,7 @@ from groq import Groq
 st.title("Simple Chat Agent")
 st.write("This is a simple chat agent that uses a language model to respond to user queries.")
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "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"
 client = Groq(api_key=GROQ_API_KEY)
 
 user_query = st.text_input("Enter your query:")
@@ -29,7 +29,7 @@ if send_btn and user_query:
 
     response = client.chat.completions.create(
         model="llama3-70b-8192",
-        messages=[system_prompt, user_query_prompt],
+        messages=[system_prompt, user_query_prompt], # type: ignore
         max_tokens=1500,
         temperature=0.7
     )
